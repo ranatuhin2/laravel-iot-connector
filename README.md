@@ -1,16 +1,3 @@
-
-## ☕ Support the Author / Donate
-
-If you find this package useful, you can support me by donating:
-
-- **Buy Me a Coffee**: [https://www.buymeacoffee.com/yourusername](https://www.buymeacoffee.com/yourusername)
-- **PayPal**: [https://www.paypal.me/yourusername](https://www.paypal.me/yourusername)
-- **GitHub Sponsors**: [https://github.com/sponsors/yourusername](https://github.com/sponsors/yourusername)
-
-Your support helps me maintain and improve this package. Thank you!
-
-
-
 <p align="center">
   <img src="https://github.com/ranatuhin2/laravel-iot-connector/blob/main/resources/icon.png" width="850" height="200" alt="Laravel IoT Connector">
 </p>
