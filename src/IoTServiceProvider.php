@@ -13,6 +13,12 @@ class IoTServiceProvider extends ServiceProvider
      {
           // Merge package config
           $this->mergeConfigFrom(__DIR__ . '/../config/iotconnector.php', 'iotconnector');
+
+
+          // Bind IoTService to the container
+          $this->app->singleton('iotconnector', function ($app) {
+               return new \RanaTuhin\LaravelIoTConnector\Services\IoTService();
+          });
      }
 
      /**
@@ -27,5 +33,16 @@ class IoTServiceProvider extends ServiceProvider
           $this->publishes([
                __DIR__ . '/../config/iotconnector.php' => config_path('iotconnector.php'),
           ], 'config');
+
+          $this->publishes([
+               __DIR__ . '/../database/migrations/' => database_path('migrations'),
+          ], 'migrations');
+
+          if ($this->app->runningInConsole()) {
+               $this->commands([
+                    \RanaTuhin\LaravelIoTConnector\Console\RegisterDeviceCommand::class,
+                    \RanaTuhin\LaravelIoTConnector\Console\SendDeviceCommand::class,
+               ]);
+          }
      }
 }
