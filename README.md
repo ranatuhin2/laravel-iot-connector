@@ -7,30 +7,6 @@
 **IoT Device Management & Real-Time Data Connector for Laravel**
 Easily **register IoT devices, store device data, send commands, and broadcast events** in real-time via MQTT, HTTP, or WebSocket protocols.
 
----
-
-## Quick Start
-
-```php
-use IoT;
-
-// 1. Register a device
-$device = IoT::registerDevice('Sensor_001');
-
-// 2. Store data from the device
-IoT::storeDeviceData($device->token, [
-    'temperature' => 28.5,
-    'humidity' => 65
-]);
-
-// 3. Send a command to the device
-IoT::dispatchCommand($device->token, ['action' => 'TURN_ON_FAN']);
-
-// 4. Listen to MQTT data (backend)
-IoT::listenToDeviceData();
-```
-
----
 
 ## Installation
 
@@ -64,6 +40,32 @@ Example configuration:
 'http_base_url' => 'http://127.0.0.1:8001/api/devices',
 'websocket_url' => 'ws://127.0.0.1:8080'
 ```
+
+
+---
+
+## Quick Start
+
+```php
+use IoT;
+
+// 1. Register a device
+$device = IoT::registerDevice('Sensor_001');
+
+// 2. Store data from the device
+IoT::storeDeviceData($device->token, [
+    'temperature' => 28.5,
+    'humidity' => 65
+]);
+
+// 3. Send a command to the device
+IoT::dispatchCommand($device->token, ['action' => 'TURN_ON_FAN']);
+
+// 4. Listen to MQTT data (backend)
+IoT::listenToDeviceData();
+```
+
+---
 
 ---
 
