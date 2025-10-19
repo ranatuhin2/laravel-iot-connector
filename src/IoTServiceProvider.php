@@ -42,6 +42,7 @@ class IoTServiceProvider extends ServiceProvider
                $this->commands([
                     \RanaTuhin\LaravelIoTConnector\Console\RegisterDeviceCommand::class,
                     \RanaTuhin\LaravelIoTConnector\Console\SendDeviceCommand::class,
+                    \RanaTuhin\LaravelIoTConnector\Console\ListenToDevices::class,
                ]);
           }
      }

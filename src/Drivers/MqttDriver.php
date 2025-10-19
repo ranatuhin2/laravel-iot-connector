@@ -49,6 +49,24 @@ class MqttDriver
           }, 0);
      }
 
+     public function subscribeAllDevices()
+     {
+          $devices = \RanaTuhin\LaravelIoTConnector\Models\Device::all();
+
+          foreach ($devices as $device) {
+               $topic = "iot/devices/{$device->name}";
+               $this->client->subscribe($topic, function ($topic, $message) use ($device) {
+                    \RanaTuhin\LaravelIoTConnector\Models\DeviceData::create([
+                         'device_id' => $device->id,
+                         'payload' => $message,
+                    ]);
+               }, 0);
+          }
+
+          $this->client->loop(true); // Keep listening
+     }
+
+
      /**
       * Publish a message to a topic
       */
