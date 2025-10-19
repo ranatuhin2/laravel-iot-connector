@@ -1,5 +1,3 @@
-# laravel-iot-connector
-
 <p align="center">
   <img src="https://github.com/ranatuhin2/laravel-iot-connector/blob/main/resources/icon.png" width="850" height="200" alt="Laravel IoT Connector">
 </p>
