@@ -2,6 +2,13 @@
      "name": "rana-tuhin/laravel-iot-connector",
      "description": "A Laravel package to connect and manage IoT devices.",
      "type": "library",
+     "license": "MIT",
+     "authors": [
+          {
+               "name": "Tuhin Rana Mondal",
+               "email": "aimlesstuhin@gmail.com"
+          }
+     ],
      "require": {
           "php": "^8.0",
           "illuminate/support": "^10.0",
@@ -17,6 +24,9 @@
                "providers": [
                     "RanaTuhin\\LaravelIoTConnector\\IoTServiceProvider"
                ]
-          }
-     }
+          },
+          "icon": "resources/icon.png"
+     },
+     "minimum-stability": "dev",
+     "prefer-stable": true
 }
