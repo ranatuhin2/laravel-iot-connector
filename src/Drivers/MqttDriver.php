@@ -68,7 +68,7 @@ class MqttDriver
     }
 
     /**
-     * Subscribe to all registered devices
+     * Subscribe to all registered devices and store incoming messages
      */
     public function subscribeAllDevices()
     {
@@ -78,12 +78,31 @@ class MqttDriver
 
         foreach ($devices as $device) {
             $topic = "iot/devices/{$device->name}";
+
             $this->client->subscribe($topic, function ($topic, $message) use ($device) {
-                \RanaTuhin\LaravelIoTConnector\Models\DeviceData::create([
-                    'device_id' => $device->id,
-                    'payload' => $message,
-                ]);
-                Log::info("Received data from {$device->name}: {$message}");
+                try {
+                    $data = json_decode($message, true);
+
+                    if (is_array($data)) {
+                        foreach ($data as $key => $value) {
+                            \RanaTuhin\LaravelIoTConnector\Models\DeviceData::create([
+                                'device_id' => $device->id,
+                                'key' => $key,
+                                'value' => $value,
+                            ]);
+                        }
+                    } else {
+                        \RanaTuhin\LaravelIoTConnector\Models\DeviceData::create([
+                            'device_id' => $device->id,
+                            'key' => 'raw',
+                            'value' => $message,
+                        ]);
+                    }
+
+                    Log::info("Inserted data for {$device->name}: {$message}");
+                } catch (\Exception $e) {
+                    Log::error("Failed to insert device data: " . $e->getMessage());
+                }
             }, 0);
         }
 
@@ -112,4 +131,3 @@ class MqttDriver
         }
     }
 }
-
