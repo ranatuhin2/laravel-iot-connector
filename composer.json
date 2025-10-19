@@ -1,0 +1,22 @@
+{
+     "name": "rana-tuhin/laravel-iot-connector",
+     "description": "A Laravel package to connect and manage IoT devices.",
+     "type": "library",
+     "require": {
+          "php": "^8.0",
+          "illuminate/support": "^10.0",
+          "illuminate/database": "^10.0"
+     },
+     "autoload": {
+          "psr-4": {
+               "RanaTuhin\\LaravelIoTConnector\\": "src/"
+          }
+     },
+     "extra": {
+          "laravel": {
+               "providers": [
+                    "RanaTuhin\\LaravelIoTConnector\\IoTServiceProvider"
+               ]
+          }
+     }
+}
