@@ -67,7 +67,6 @@ IoT::listenToDeviceData();
 
 ---
 
----
 
 ## Usage
 
