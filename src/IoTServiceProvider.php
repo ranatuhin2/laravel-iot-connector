@@ -4,6 +4,7 @@ namespace RanaTuhin\LaravelIoTConnector;
 
 use Illuminate\Support\ServiceProvider;
 
+
 class IoTServiceProvider extends ServiceProvider
 {
      /**
