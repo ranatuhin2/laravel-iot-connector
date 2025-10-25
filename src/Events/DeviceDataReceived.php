@@ -15,6 +15,7 @@ class DeviceDataReceived implements ShouldBroadcast
 {
      use Dispatchable, InteractsWithSockets, SerializesModels;
 
+     
      public $device;
      public $data;
 
