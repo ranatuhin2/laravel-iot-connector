@@ -13,7 +13,7 @@ Easily **register IoT devices, store device data, send commands, and broadcast e
 Install via Composer:
 
 ```bash
-composer require rana-tuhin/laravel-iot-connector:@dev
+composer require rana-tuhin/laravel-iot-connector
 ```
 
 Laravel will **auto-discover** the package.
